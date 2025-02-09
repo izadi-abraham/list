@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int          @id @default(autoincrement())
+  username      String       @unique
+  password_hash String
+  email         String?      @unique
+  full_name     String?
+  listItems     ListItem[]
+  sharedItems   SharedList[]
+  sharedWith    SharedList[] @relation("SharedWith")
+}
+
+model ListItem {
+  id         Int          @id @default(autoincrement())
+  user       User         @relation(fields: [userId], references: [id])
+  userId     Int
+  list_type  String
+  list_name  String
+  item_name  String
+  quantity   Int?
+  unit       String?
+  checked    Boolean      @default(false)
+  category   String?
+  notes      String?
+  sharedWith SharedList[]
+}
+
+model SharedList {
+  user                User     @relation(fields: [userId], references: [id])
+  userId              Int
+  listItem            ListItem @relation(fields: [list_item_id], references: [id])
+  list_item_id        Int
+  sharedWith          User     @relation("SharedWith", fields: [shared_with_user_id], references: [id])
+  shared_with_user_id Int
+  permission_level    String   @default("read")
+
+  @@unique([userId, list_item_id, shared_with_user_id])
+}
