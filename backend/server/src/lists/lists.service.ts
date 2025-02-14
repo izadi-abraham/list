@@ -1,21 +1,19 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from "../prisma/prisma.service";
 
-
-export interface ShoppingList {
-    id: number;
-    name: string;
-    items: string[]
-}
 
 @Injectable()
 export class ListsService {
-    private shoppingLists: ShoppingList[] = [
-        { id: 1, name: 'Grocery List', items: ['Milk', 'Eggs', 'Bread']},
-        { id: 2, name: 'Household Items', items: ['Laundry detergent', 'Paper towels']},
-    ];
+
+    constructor(private prisma: PrismaService) {}
 
 
-    getLists(): ShoppingList[] {
-        return this.shoppingLists
+
+    async getLists(userId: number) {
+        return this.prisma.listItem.groupBy({
+            by: ['list_type', 'list_name'],
+            where: { userId: userId },
+            _count: { _all: true }
+        })
     }
 }
