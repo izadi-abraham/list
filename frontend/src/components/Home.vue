@@ -7,11 +7,32 @@ const lists = ref([])
 
 
 onMounted(async () => {
-    const response = await fetch('http://localhost:3000/lists')
+    // const response = await fetch('http://localhost:3000/lists')
+    //
 
-    const json = await response.json()
 
-    console.log('json', json)
+    const jwtToken = await fetch('http://localhost:3000/auth/test-token', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: 1234 })
+    })
+
+    const token = await jwtToken.json()
+
+    console.log('token', token)
+
+    const response = await fetch('http://localhost:3000/lists', {
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${token['access_token']}`
+        }
+    })
+
+    const lists = await response.json()
+
+    console.log('lists', lists)
 })
 
 

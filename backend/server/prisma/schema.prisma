@@ -19,34 +19,44 @@ model User {
   password_hash String
   email         String?      @unique
   full_name     String?
-  listItems     ListItem[]
+  lists         List[]
   sharedItems   SharedList[]
   sharedWith    SharedList[] @relation("SharedWith")
 }
 
-model ListItem {
+model List {
   id         Int          @id @default(autoincrement())
   user       User         @relation(fields: [userId], references: [id])
   userId     Int
   list_type  String
   list_name  String
+  items      Item[]
+  sharedWith SharedList[]
+}
+
+model Item {
+  id         Int          @id @default(autoincrement())
+  list       List         @relation(fields: [listId], references: [id])
+  listId     Int
   item_name  String
   quantity   Int?
   unit       String?
   checked    Boolean      @default(false)
   category   String?
   notes      String?
-  sharedWith SharedList[]
+  SharedList SharedList[]
 }
 
 model SharedList {
-  user                User     @relation(fields: [userId], references: [id])
+  user                User   @relation(fields: [userId], references: [id])
   userId              Int
-  listItem            ListItem @relation(fields: [list_item_id], references: [id])
-  list_item_id        Int
-  sharedWith          User     @relation("SharedWith", fields: [shared_with_user_id], references: [id])
+  item                Item   @relation(fields: [item_id], references: [id])
+  item_id             Int
+  sharedWith          User   @relation("SharedWith", fields: [shared_with_user_id], references: [id])
   shared_with_user_id Int
-  permission_level    String   @default("read")
+  permission_level    String @default("read")
+  List                List?  @relation(fields: [listId], references: [id])
+  listId              Int?
 
-  @@unique([userId, list_item_id, shared_with_user_id])
+  @@unique([userId, item_id, shared_with_user_id])
 }
