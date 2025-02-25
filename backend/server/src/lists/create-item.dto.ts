@@ -1,6 +1,0 @@
-
-
-
-class CreateItemDto {
-    name: string
-}

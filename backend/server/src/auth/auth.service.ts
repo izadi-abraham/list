@@ -12,8 +12,6 @@ export class AuthService {
             where: { id: userId }
         })
 
-        console.log('user inside validateUser', user)
-
         return user
     }
 

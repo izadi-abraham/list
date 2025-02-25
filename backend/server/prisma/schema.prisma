@@ -28,8 +28,8 @@ model List {
   id         Int          @id @default(autoincrement())
   user       User         @relation(fields: [userId], references: [id])
   userId     Int
-  list_type  String
-  list_name  String
+  listType   String       @map("list_type")
+  listName   String       @map("list_name")
   items      Item[]
   sharedWith SharedList[]
 }
@@ -38,7 +38,7 @@ model Item {
   id         Int          @id @default(autoincrement())
   list       List         @relation(fields: [listId], references: [id])
   listId     Int
-  item_name  String
+  itemName   String       @map("item_name")
   quantity   Int?
   unit       String?
   checked    Boolean      @default(false)
@@ -48,15 +48,15 @@ model Item {
 }
 
 model SharedList {
-  user                User   @relation(fields: [userId], references: [id])
-  userId              Int
-  item                Item   @relation(fields: [item_id], references: [id])
-  item_id             Int
-  sharedWith          User   @relation("SharedWith", fields: [shared_with_user_id], references: [id])
-  shared_with_user_id Int
-  permission_level    String @default("read")
-  List                List?  @relation(fields: [listId], references: [id])
-  listId              Int?
+  user             User   @relation(fields: [userId], references: [id])
+  userId           Int
+  item             Item   @relation(fields: [itemId], references: [id])
+  itemId           Int    @map("item_id")
+  sharedWith       User   @relation("SharedWith", fields: [sharedWithUserId], references: [id])
+  sharedWithUserId Int    @map("shared_with_user_id")
+  permissionLevel  String @default("read") @map("permission_level")
+  List             List?  @relation(fields: [listId], references: [id])
+  listId           Int?
 
-  @@unique([userId, item_id, shared_with_user_id])
+  @@unique([userId, itemId, sharedWithUserId])
 }

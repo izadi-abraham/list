@@ -1,10 +1,10 @@
 
 
 
-class CreateListDto {
-    list_type:  string
-    list_name:  string
-    item_name:  string
+export class CreateListDto {
+    listType:  string
+    listName:  string
+    itemName:  string
     quantity?:  number
     unit?:      string
     category?:  string
