@@ -47,7 +47,13 @@ onMounted(async () => {
     //     })
     // })
 
-    lists.value = await response.json()
+    await response.json().then(response => {
+        lists.value = response.map((list) => (
+            {
+                ...list,
+                showItems: false
+            }))
+    })
 
     console.log('lists.value', lists.value)
 
@@ -61,10 +67,33 @@ onMounted(async () => {
     <div class="w-full mx-auto p-4">
         <div v-if="loading">Loading...</div>
         <div v-else class="w-full">
-            <div class="text-2xl font-bold mb-4 text-red-500">Your Lists</div>
-            <div class="w-full grid grid-cols-4 gap-4 text-xl text-red-500">
-                <div v-for="list in lists" :key="list.id" class="bg-white rounded-lg shadow p-4">
-                    {{ list.listName }}
+            <div class="w-full grid grid-cols-4 gap-4 text-lg">
+                <div
+                    v-for="list in lists"
+                    :key="list.id"
+                     class="flex flex-col h-fit cursor-pointer rounded-lg border border-slate-200 shadow p-4 hover:ring hover:ring-slate-100"
+                    @click="() => list.showItems = !list.showItems"
+                >
+                    <div
+                        class="flex justify-between"
+                    >
+                        <div>{{ list.listName }}</div>
+                        <div class="text-2xl" v-show="list.items.length">
+                            {{ list.showItems ? '-' : '+' }}
+                        </div>
+                    </div>
+                    <div
+                        v-show="list.showItems"
+                        class="p-4"
+                    >
+                        <div
+                            v-for="listItem in list.items"
+                            :key="listItem.id"
+                            class="p-2 text-base"
+                        >
+                            {{ listItem.itemName }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
