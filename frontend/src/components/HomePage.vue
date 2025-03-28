@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import { onMounted, ref } from "vue";
+import Quantity from "./Quantity.vue";
 
 const lists = ref([])
 const loading = ref(false)
@@ -89,9 +90,10 @@ onMounted(async () => {
                         <div
                             v-for="listItem in list.items"
                             :key="listItem.id"
-                            class="p-2 text-base"
+                            class="p-2 text-base flex justify-between hover:bg-gray-50 rounded-md"
                         >
-                            {{ listItem.itemName }}
+                            <div> {{ listItem.itemName }}</div>
+                            <Quantity v-model="listItem.quantity"/>
                         </div>
                     </div>
                 </div>
