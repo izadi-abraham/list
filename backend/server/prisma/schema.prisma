@@ -39,7 +39,7 @@ model Item {
   list       List         @relation(fields: [listId], references: [id])
   listId     Int
   itemName   String       @map("item_name")
-  quantity   Int?
+  quantity   Int          @default(1)
   unit       String?
   checked    Boolean      @default(false)
   category   String?
