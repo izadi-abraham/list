@@ -90,7 +90,8 @@ onMounted(async () => {
                         <div
                             v-for="listItem in list.items"
                             :key="listItem.id"
-                            class="p-2 text-base flex justify-between hover:bg-gray-50 rounded-md"
+                            class="item-component p-2 text-base flex justify-between hover:bg-gray-50 rounded-md"
+                            :class="`${listItem.checked ? 'line-through decoration-2 decoration-orange-500' : ''}`"
                         >
                             <div> {{ listItem.itemName }}</div>
                             <Quantity v-model="listItem.quantity"/>
