@@ -3,7 +3,7 @@ import { PrismaService } from "../prisma/prisma.service";
 import { CreateListDto } from './dto/create-list.dto';
 import { UpdateListDto } from './dto/update-list.dto';
 import { CreateItemDto } from './dto/create-item.dto'
-import { UpdateItemDto } from './dto/update-item.dto'
+import { UpdateItemDto } from '../item/dto/update-item.dto'
 
 
 @Injectable()
@@ -89,57 +89,6 @@ export class ListsService {
                 throw error;
             }
             throw new BadRequestException('Failed to delete list.');
-        }
-    }
-
-    async createItem(listId: number, createItemDto: CreateItemDto) {
-        try {
-            const list = this.prisma.list.findUnique({ where: { id: listId } })
-
-            if (!list) {
-                throw new NotFoundException(`List with ID ${listId} not found`);
-            }
-
-            return this.prisma.item.create({ data: { ...createItemDto, listId } })
-
-        } catch (error) {
-            if (error instanceof NotFoundException) {
-                throw error;
-            }
-            throw new BadRequestException('Failed to create item.');
-        }
-    }
-
-    async updateItem(id: number, updateItemDto: UpdateItemDto) {
-        try {
-            const item = await this.prisma.item.findUnique({ where: { id } });
-            if (!item) {
-                throw new NotFoundException(`Item with ID ${id} not found`);
-            }
-            return await this.prisma.item.update({
-                where: { id },
-                data: updateItemDto,
-            });
-        } catch (error) {
-            if (error instanceof NotFoundException) {
-                throw error;
-            }
-            throw new BadRequestException('Failed to update item.');
-        }
-    }
-
-    async deleteItem(id: number) {
-        try {
-            const item = await this.prisma.item.findUnique({ where: { id } });
-            if (!item) {
-                throw new NotFoundException(`Item with ID ${id} not found`);
-            }
-            return await this.prisma.item.delete({ where: { id } });
-        } catch (error) {
-            if (error instanceof NotFoundException) {
-                throw error;
-            }
-            throw new BadRequestException('Failed to delete item.');
         }
     }
 }
