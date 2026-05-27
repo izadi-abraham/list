@@ -1,11 +1,15 @@
 import { Elysia } from "elysia";
 import { cors } from "@elysiajs/cors";
 import { swagger } from "@elysiajs/swagger";
+import { authRoutes } from "./routes/auth.routes";
+import { usersRoutes } from "./routes/users.routes";
 
 const app = new Elysia()
   .use(cors({ origin: process.env.CORS_ORIGIN ?? "http://localhost:3000" }))
   .use(swagger({ path: "/docs" }))
   .get("/health", () => ({ status: "ok" }))
+  .use(authRoutes)
+  .use(usersRoutes)
   .listen(Number(process.env.PORT ?? 4000));
 
 console.log(`API running at http://localhost:${app.server?.port}`);
