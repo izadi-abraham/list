@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "myLists": "My Lists",
+    "settings": "Settings",
+    "signOut": "Sign out"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "createAccount": "Create account",
+    "email": "Email",
+    "password": "Password",
+    "username": "Username",
+    "fullName": "Full name",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?"
+  },
+  "list": {
+    "newList": "New list",
+    "empty": "No items yet. Add one below.",
+    "addItem": "Add item",
+    "shareList": "Share list",
+    "deleteList": "Delete list",
+    "type": {
+      "shopping": "Shopping",
+      "books": "Books",
+      "movies": "Movies",
+      "food": "Meals",
+      "custom": "Custom"
+    }
+  },
+  "item": {
+    "addPlaceholder": "Add an item…",
+    "delete": "Remove"
+  },
+  "share": {
+    "title": "Share list",
+    "inviteByEmail": "Invite by email",
+    "role": {
+      "editor": "Can edit",
+      "viewer": "View only"
+    },
+    "invite": "Invite"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "unauthorized": "Please sign in to continue."
+  }
+}

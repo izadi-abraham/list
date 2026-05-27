@@ -1,0 +1,25 @@
+{
+  "name": "@list/web",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "generate": "nuxt generate",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@list/shared": "workspace:*",
+    "@nuxtjs/google-fonts": "latest",
+    "@nuxtjs/i18n": "latest",
+    "@nuxtjs/tailwindcss": "latest",
+    "@pinia/nuxt": "latest",
+    "nuxt": "latest",
+    "pinia": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "vue": "latest",
+    "vue-router": "latest"
+  }
+}

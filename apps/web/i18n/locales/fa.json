@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "myLists": "لیست‌های من",
+    "settings": "تنظیمات",
+    "signOut": "خروج"
+  },
+  "auth": {
+    "signIn": "ورود",
+    "createAccount": "ساخت حساب کاربری",
+    "email": "ایمیل",
+    "password": "رمز عبور",
+    "username": "نام کاربری",
+    "fullName": "نام کامل",
+    "noAccount": "حساب کاربری ندارید؟",
+    "haveAccount": "قبلاً ثبت‌نام کرده‌اید؟"
+  },
+  "list": {
+    "newList": "لیست جدید",
+    "empty": "هنوز موردی نیست. یک مورد اضافه کنید.",
+    "addItem": "افزودن مورد",
+    "shareList": "اشتراک‌گذاری لیست",
+    "deleteList": "حذف لیست",
+    "type": {
+      "shopping": "خرید",
+      "books": "کتاب‌ها",
+      "movies": "فیلم‌ها",
+      "food": "غذاها",
+      "custom": "سفارشی"
+    }
+  },
+  "item": {
+    "addPlaceholder": "مورد جدید…",
+    "delete": "حذف"
+  },
+  "share": {
+    "title": "اشتراک‌گذاری لیست",
+    "inviteByEmail": "دعوت با ایمیل",
+    "role": {
+      "editor": "می‌تواند ویرایش کند",
+      "viewer": "فقط مشاهده"
+    },
+    "invite": "دعوت"
+  },
+  "errors": {
+    "generic": "مشکلی پیش آمد. دوباره تلاش کنید.",
+    "unauthorized": "لطفاً وارد شوید."
+  }
+}

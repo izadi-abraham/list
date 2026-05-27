@@ -1,65 +1,43 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+.output/
+.nuxt/
+.vercel/
+build/
+
 # Logs
-logs
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-frontend/node_modules
-backend/server/node_modules
-.env
-frontend/dist
-backend/server/dist
-dist-ssr
-*.local
+# OS
+.DS_Store
+Thumbs.db
 
-backend/server/scripts
-
-# Editor directories and files
+# Editor
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-
-# compiled output
-backend/dist
-/build
-
-
-
-# Tests
-/coverage
-/.nyc_output
-
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
+.idea/
+*.suo
+*.sw?
 
+# Drizzle
+apps/api/drizzle/meta/
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Diagnostic reports (https://nodejs.org/api/report.html)
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+# Test
+coverage/
+.nyc_output/

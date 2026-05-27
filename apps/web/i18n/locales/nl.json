@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "myLists": "Mijn lijsten",
+    "settings": "Instellingen",
+    "signOut": "Uitloggen"
+  },
+  "auth": {
+    "signIn": "Inloggen",
+    "createAccount": "Account aanmaken",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "username": "Gebruikersnaam",
+    "fullName": "Volledige naam",
+    "noAccount": "Nog geen account?",
+    "haveAccount": "Al een account?"
+  },
+  "list": {
+    "newList": "Nieuwe lijst",
+    "empty": "Nog geen items. Voeg er een toe.",
+    "addItem": "Item toevoegen",
+    "shareList": "Lijst delen",
+    "deleteList": "Lijst verwijderen",
+    "type": {
+      "shopping": "Boodschappen",
+      "books": "Boeken",
+      "movies": "Films",
+      "food": "Maaltijden",
+      "custom": "Aangepast"
+    }
+  },
+  "item": {
+    "addPlaceholder": "Item toevoegen…",
+    "delete": "Verwijderen"
+  },
+  "share": {
+    "title": "Lijst delen",
+    "inviteByEmail": "Uitnodigen via e-mail",
+    "role": {
+      "editor": "Kan bewerken",
+      "viewer": "Alleen bekijken"
+    },
+    "invite": "Uitnodigen"
+  },
+  "errors": {
+    "generic": "Er is iets misgegaan. Probeer het opnieuw.",
+    "unauthorized": "Log in om door te gaan."
+  }
+}
