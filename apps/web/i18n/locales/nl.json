@@ -16,8 +16,12 @@
   },
   "list": {
     "newList": "Nieuwe lijst",
+    "noLists": "Nog geen lijsten. Maak er een aan.",
+    "listName": "Lijstnaam",
+    "create": "Aanmaken",
     "empty": "Nog geen items. Voeg er een toe.",
     "addItem": "Item toevoegen",
+    "checkedCount": "{n} afgevinkt",
     "shareList": "Lijst delen",
     "deleteList": "Lijst verwijderen",
     "type": {
@@ -40,6 +44,10 @@
       "viewer": "Alleen bekijken"
     },
     "invite": "Uitnodigen"
+  },
+  "common": {
+    "cancel": "Annuleren",
+    "loading": "Laden…"
   },
   "errors": {
     "generic": "Er is iets misgegaan. Probeer het opnieuw.",

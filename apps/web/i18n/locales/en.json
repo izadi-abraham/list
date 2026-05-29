@@ -16,8 +16,12 @@
   },
   "list": {
     "newList": "New list",
+    "noLists": "No lists yet. Create one to get started.",
+    "listName": "List name",
+    "create": "Create",
     "empty": "No items yet. Add one below.",
     "addItem": "Add item",
+    "checkedCount": "{n} checked | {n} checked",
     "shareList": "Share list",
     "deleteList": "Delete list",
     "type": {
@@ -40,6 +44,10 @@
       "viewer": "View only"
     },
     "invite": "Invite"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "loading": "Loading…"
   },
   "errors": {
     "generic": "Something went wrong. Please try again.",
