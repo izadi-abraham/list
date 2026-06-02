@@ -10,6 +10,11 @@ import { wsPlugin } from "./plugins/ws.plugin";
 const app = new Elysia()
   .use(cors({ origin: process.env.CORS_ORIGIN ?? "http://localhost:3000" }))
   .use(swagger({ path: "/docs" }))
+  .onError(({ code, error, request }) => {
+    if (code !== "NOT_FOUND" && code !== "VALIDATION") {
+      console.error(`[${code}] ${request.method} ${request.url}`, error)
+    }
+  })
   .get("/health", () => ({ status: "ok" }))
   .use(authRoutes)
   .use(usersRoutes)

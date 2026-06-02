@@ -10,7 +10,7 @@ import {
   primaryKey,
   check,
 } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 
 export const listTypeEnum = pgEnum("list_type", [
   "shopping",
@@ -25,6 +25,8 @@ export const memberRoleEnum = pgEnum("member_role", [
   "editor",
   "viewer",
 ]);
+
+// --- Tables ---
 
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
@@ -94,3 +96,30 @@ export const items = pgTable(
     check("quantity_positive", sql`${t.quantity} IS NULL OR ${t.quantity} > 0`),
   ]
 );
+
+// --- Relations ---
+
+export const usersRelations = relations(users, ({ many }) => ({
+  refreshTokens: many(refreshTokens),
+  listMembers: many(listMembers),
+  ownedLists: many(lists),
+}));
+
+export const refreshTokensRelations = relations(refreshTokens, ({ one }) => ({
+  user: one(users, { fields: [refreshTokens.userId], references: [users.id] }),
+}));
+
+export const listsRelations = relations(lists, ({ one, many }) => ({
+  owner: one(users, { fields: [lists.ownerId], references: [users.id] }),
+  items: many(items),
+  listMembers: many(listMembers),
+}));
+
+export const listMembersRelations = relations(listMembers, ({ one }) => ({
+  list: one(lists, { fields: [listMembers.listId], references: [lists.id] }),
+  user: one(users, { fields: [listMembers.userId], references: [users.id] }),
+}));
+
+export const itemsRelations = relations(items, ({ one }) => ({
+  list: one(lists, { fields: [items.listId], references: [lists.id] }),
+}));
