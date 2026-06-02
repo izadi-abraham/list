@@ -47,7 +47,22 @@
   },
   "common": {
     "cancel": "Annuleren",
-    "loading": "Laden…"
+    "loading": "Laden…",
+    "save": "Opslaan",
+    "delete": "Verwijderen",
+    "remove": "Verwijderen"
+  },
+  "settings": {
+    "profile": "Profiel",
+    "language": "Taal",
+    "saved": "Opgeslagen!"
+  },
+  "listSettings": {
+    "title": "Lijstinstellingen",
+    "members": "Leden",
+    "you": "Jij",
+    "dangerZone": "Gevarenzone",
+    "confirmDelete": "Deze lijst en alle items definitief verwijderen?"
   },
   "errors": {
     "generic": "Er is iets misgegaan. Probeer het opnieuw.",

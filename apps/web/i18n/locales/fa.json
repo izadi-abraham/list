@@ -47,7 +47,22 @@
   },
   "common": {
     "cancel": "لغو",
-    "loading": "در حال بارگذاری…"
+    "loading": "در حال بارگذاری…",
+    "save": "ذخیره",
+    "delete": "حذف",
+    "remove": "برداشتن"
+  },
+  "settings": {
+    "profile": "پروفایل",
+    "language": "زبان",
+    "saved": "ذخیره شد!"
+  },
+  "listSettings": {
+    "title": "تنظیمات لیست",
+    "members": "اعضا",
+    "you": "شما",
+    "dangerZone": "منطقه خطر",
+    "confirmDelete": "این لیست و تمام موارد آن حذف شود؟"
   },
   "errors": {
     "generic": "مشکلی پیش آمد. دوباره تلاش کنید.",

@@ -47,7 +47,22 @@
   },
   "common": {
     "cancel": "Cancel",
-    "loading": "Loading…"
+    "loading": "Loading…",
+    "save": "Save",
+    "delete": "Delete",
+    "remove": "Remove"
+  },
+  "settings": {
+    "profile": "Profile",
+    "language": "Language",
+    "saved": "Saved!"
+  },
+  "listSettings": {
+    "title": "List settings",
+    "members": "Members",
+    "you": "You",
+    "dangerZone": "Danger zone",
+    "confirmDelete": "Delete this list and all its items?"
   },
   "errors": {
     "generic": "Something went wrong. Please try again.",
