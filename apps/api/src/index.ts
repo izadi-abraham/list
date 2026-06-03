@@ -21,7 +21,7 @@ const app = new Elysia()
   .use(listsRoutes)
   .use(itemsRoutes)
   .use(wsPlugin)
-  .listen(Number(process.env.PORT ?? 4000));
+  .listen({ hostname: "0.0.0.0", port: Number(process.env.PORT ?? 4000) });
 
 console.log(`API running at http://localhost:${app.server?.port}`);
 
