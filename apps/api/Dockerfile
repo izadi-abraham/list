@@ -2,7 +2,7 @@ FROM oven/bun:1-alpine
 WORKDIR /app
 
 # Copy workspace manifests so bun install resolves the monorepo
-COPY package.json bun.lock ./
+COPY package.json ./
 COPY packages/shared/package.json packages/shared/
 COPY apps/api/package.json apps/api/
 COPY apps/web/package.json apps/web/
