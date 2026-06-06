@@ -2,6 +2,7 @@ app = "list-api"
 primary_region = "ams"
 
 [build]
+  dockerfile = "apps/api/Dockerfile"
 
 [env]
   PORT = "8080"
