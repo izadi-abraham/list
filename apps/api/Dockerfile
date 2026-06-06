@@ -6,7 +6,7 @@ COPY package.json bun.lock ./
 COPY packages/shared/package.json packages/shared/
 COPY apps/api/package.json apps/api/
 
-RUN bun install --frozen-lockfile --production
+RUN bun install --production
 
 # Copy source
 COPY packages/shared packages/shared
