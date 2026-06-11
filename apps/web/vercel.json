@@ -1,3 +1,5 @@
 {
-  "installCommand": "cd ../.. && bun install"
+  "installCommand": "cd ../.. && bun install",
+  "buildCommand": "nuxt build",
+  "outputDirectory": ".output"
 }
